@@ -142,6 +142,11 @@ export default function handler(req, res) {
       ]
     };
   
+    res.setHeader('Access-Control-Allow-Origin', '*');  // 允許所有來源
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); // 允許的 HTTP 方法
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');  // 允許的標頭
+
+    
     // 返回資料
     res.status(200).json(data);
   }
