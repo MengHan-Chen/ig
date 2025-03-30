@@ -143,9 +143,5 @@ export default function handler(req, res) {
     };
   
     // 返回資料
-    return new Response(JSON.stringify(data), {
-      headers: {
-        "Content-Type": "application/json",
-      }
-    });
+    res.status(200).json(data);
   }
