@@ -37,8 +37,29 @@ const stories= [
 ]
 
 export async function GET(req:Request){
+  const headers = new Headers();
+  headers.set("Content-Type", "application/json");
+  headers.set("Access-Control-Allow-Origin", "https://ig-practice-project.vercel.app"); // 允許所有來源，或改成特定網域
+  headers.set("Access-Control-Allow-Methods", "GET, OPTIONS");
+  headers.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+
+
   return new Response(JSON.stringify(stories),{
       status:200,
       headers:{ "Content-Type": "application/json" }
   })
+}
+
+export async function OPTIONS() {
+  // 預檢請求回應
+  const headers = new Headers();
+  headers.set("Access-Control-Allow-Origin", "https://ig-practice-project.vercel.app");
+  headers.set("Access-Control-Allow-Methods", "GET, OPTIONS");
+  headers.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+  return new Response(null, {
+    status: 200,
+    headers,
+  });
 }
