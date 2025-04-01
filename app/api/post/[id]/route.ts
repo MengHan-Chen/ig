@@ -103,9 +103,31 @@ const posts = [
     }
   ]
 
-export async function GET(req:Request){
-  return new Response(JSON.stringify(posts),{
+// export async function GET(req:Request){
+//   return new Response(JSON.stringify(data),{
+//       status:200,
+//       headers:{ "Content-Type": "application/json" }
+//   })
+// }
+
+export async function GET(req:Request, context:any) {
+  const { params } = context;
+  const post = posts.filter((post)=>post.id === params.id.toString())
+  
+  // console.log(123);
+  // if(params.id=='ALL')return new Response(JSON.stringify(posts),{
+  //   status:200,
+  //   headers:{ "Content-Type": "application/json" }
+  // })
+  
+  if(post.length === 0 ) return  new Response(JSON.stringify({error: "Post not found !"}),{
+      status:404,
+      headers:{ "Content-Type": "application/json" }
+  })
+
+  return new Response(JSON.stringify(post),{
       status:200,
       headers:{ "Content-Type": "application/json" }
   })
+
 }

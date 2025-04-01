@@ -1,10 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-// const BASE_URL= process.env.NODE_ENV === "development"
-// ? "http://localhost:3001/"
-// : "https://your-vercel-api.vercel.app/api/";
+const BASE_URL= process.env.NODE_ENV === "development"
+? "http://localhost:3000/api/"
+: "https://ig-black.vercel.app/api/";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://ig-black.vercel.app/api/";
+// const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://ig-black.vercel.app/api/";
 
 type IGStory={
     id:number;
