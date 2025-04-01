@@ -4,7 +4,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 // ? "http://localhost:3000/api/"
 // : "https://ig-practice-project.vercel.app/api/";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://ig-practice-project.vercel.app/api/";
+// const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://ig-practice-project.vercel.app/api/";
+const BASE_URL =  "https://ig-practice-project.vercel.app/api/";
 
 type IGStory={
     id:number;
